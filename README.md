@@ -5,29 +5,33 @@ iOS单元测试UnitTest
 command+u快捷方式运行 command+6跳转所有UntiTest
 
 1.XCTestCase 生命周期 类方法只调用一次
-+(void)setUp{
++
+
+(void)setUp{
 [super setUp];
 }
 ############
 期间循环
--(void)setUp {
+- (void)setUp {
 [super setUp];
 }
--(void)testExample {
+- (void)testExample {
 // This is an example of a functional test case.
 }
--(void)tearDown {
+- (void)tearDown {
 // Put teardown code here. This method is called after the invocation of each test method in the class.
 [super tearDown];
 }
 ##############
-+(void)tearDown{
++
+
+(void)tearDown{
 [super tearDown];
 }
 
 2.demo
 1）测试的三段式基本结构
--(void)testAdd{
+- (void)testAdd{
 //1. Given 测试条件的准备。
 int a = 1;
 int b = 1;
@@ -36,11 +40,13 @@ int c = [self addNumberOne:a andNumberTwo:b];
 //3.Then 断言判断是否符合预期结果。
 XCTAssertEqual(c, 2);
 }
--(int)addNumberOne:(int)numberA andNumberTwo:(int)numberB {
-return numberA + numberB;
+- (int)addNumberOne:(int)numberA andNumberTwo:(int)numberB {
+return numberA +
+
+numberB;
 }
 2)测试性能例子
--(void)testPerformanceExample {
+- (void)testPerformanceExample {
 // This is an example of a performance test case.
 [self measureBlock:^{
 // Put the code you want to measure the time of here.
@@ -48,7 +54,7 @@ return numberA + numberB;
 }];
 }
 3）异步断言测试
--(void)testSendRequestAsync {
+- (void)testSendRequestAsync {
 //1.创建一个测试断言 Given
 XCTestExpectation * expectation = [self expectationWithDescription:@"Async Test was failed"];
 //2. When
